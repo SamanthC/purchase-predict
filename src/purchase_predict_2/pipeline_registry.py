@@ -32,6 +32,8 @@ from typing import Dict
 from kedro.pipeline import Pipeline
 
 from purchase_predict_2.pipelines.processing import pipeline as processing_pipeline
+from purchase_predict_2.pipelines.training import pipeline as training_pipeline
+from purchase_predict_2.pipelines.loading import pipeline as loading_pipeline
 
 
 def register_pipelines() -> Dict[str, Pipeline]:
@@ -40,6 +42,8 @@ def register_pipelines() -> Dict[str, Pipeline]:
     Returns:
         A mapping from a pipeline name to a ``Pipeline`` object.
     """
-    p_preprocessing = processing_pipeline.create_pipeline()    
-    return {"processing": p_preprocessing}
+    p_processing = processing_pipeline.create_pipeline()
+    p_training = training_pipeline.create_pipeline()
+    p_loading = loading_pipeline.create_pipeline()
 
+    return {"processing": p_processing, "training": p_training, "loading": p_loading}

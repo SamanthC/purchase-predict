@@ -1,1 +1,4 @@
 test_ratio: 0.3
+automl_max_evals: 10
+gcp_project_id: "blent-mleng"
+gcs_primary_folder: "ml-eng-blent/primary/data.csv"

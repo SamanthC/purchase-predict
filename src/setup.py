@@ -28,9 +28,7 @@
 
 from setuptools import find_packages, setup
 
-entry_point = (
-    "purchase_predict_2 = purchase_predict_2.__main__:main"
-)
+entry_point = "purchase_predict_2 = purchase_predict_2.__main__:main"
 
 
 # get the dependencies and installs
