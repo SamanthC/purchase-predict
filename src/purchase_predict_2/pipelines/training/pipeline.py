@@ -8,8 +8,16 @@ def create_pipeline(*kwargs):
         [
             node(
                 auto_ml,
-                ["X_train", "y_train", "X_test", "y_test", "params:automl_max_evals"],
-                dict(model="model"),
+                [
+                    "X_train",
+                    "y_train",
+                    "X_test",
+                    "y_test",
+                    "params:automl_max_evals",
+                    "params:mlflow_enabled",
+                    "params:mlflow_experiment_id",
+                ],
+                dict(model="model", mlflow_run_id="mlflow_run_id"),
             )
         ]
     )

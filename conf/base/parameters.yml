@@ -1,4 +1,8 @@
 test_ratio: 0.3
-automl_max_evals: 10
+automl_max_evals: 1
 gcp_project_id: "blent-mleng"
 gcs_primary_folder: "ml-eng-blent/primary/data.csv"
+
+mlflow_enabled: True # Do we log metrics and artifacts to mlflow?
+mlflow_experiment_id: 1 # Experimented ID associated to this project 
+mlflow_model_registry: "purchase_predict"

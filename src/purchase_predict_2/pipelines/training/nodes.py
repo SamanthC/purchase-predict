@@ -1,5 +1,7 @@
+import os
 import pandas as pd
 import numpy as np
+import mlflow
 
 from typing import Callable, Tuple, Any, Dict
 
@@ -102,6 +104,8 @@ def auto_ml(
     X_test: np.ndarray,
     y_test: np.ndarray,
     max_evals: int = 40,
+    log_to_mlflow: bool = False,
+    experiment_id: int = -1,
 ) -> BaseEstimator:
     """
     Runs training of multiple model instances and select the most accurate based on objective function
@@ -109,6 +113,12 @@ def auto_ml(
 
     X = pd.concat((X_train, X_test))
     y = pd.concat((y_train, y_test))
+
+    run_id = ""
+    if log_to_mlflow:
+        mlflow.set_tracking_uri(os.getenv("MLFLOW_SERVER"))
+        run = mlflow.start_run(experiment_id=experiment_id)
+        run_id = run.info.run_id
 
     opt_models = []
 
@@ -139,4 +149,13 @@ def auto_ml(
 
         best_model = max(opt_models, key=lambda x: x["score"])
 
-        return dict(model=best_model)
+        if log_to_mlflow:
+            model_metrics = {"f1": best_model["score"]}
+
+            mlflow.log_metrics(model_metrics)
+            mlflow.log_params(optimum_params)
+            # mlflow.log_artifacts("data/08_reporting", artifact_path="plots")
+            mlflow.sklearn.log_model(best_model["model"], "model")
+            mlflow.end_run()
+
+        return dict(model=best_model, mlflow_run_id=run_id)
