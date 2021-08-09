@@ -1,0 +1,7 @@
+steps:
+- name: "docker.io/library/python:3.7
+  id: CI
+  entrypoint: /bin/sh
+  args:
+  - -c
+  - "chmod a+x install.sh && ./install.sh && pytest"

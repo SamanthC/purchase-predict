@@ -155,6 +155,7 @@ def auto_ml(
             mlflow.log_metrics(model_metrics)
             mlflow.log_params(optimum_params)
             # mlflow.log_artifacts("data/08_reporting", artifact_path="plots")
+            mlflow.log_artifact("data/04_feature/transform_pipeline.pkl")
             mlflow.sklearn.log_model(best_model["model"], "model")
             mlflow.end_run()
 

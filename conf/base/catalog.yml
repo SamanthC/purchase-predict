@@ -31,3 +31,7 @@ model:
   type: pickle.PickleDataSet
   filepath: data/06_models/model.pickl
 
+transform_pipeline:
+  type: pickle.PickleDataSet
+  filepath: data/04_feature/transform_pipeline.pkl
+

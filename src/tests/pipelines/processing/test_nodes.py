@@ -18,8 +18,6 @@ def test_encode_features(dataset_not_encoded):
 
     assert (df["purchased"].value_counts() / df.shape[0] > BALANCE_THRESHOLD).all()
 
-    print(df.head())
-
 
 def test_split_dataset(dataset_encoded, test_ratio):
     X_train, y_train, X_test, y_test = split_dataset(
