@@ -11,7 +11,7 @@ steps:
   entrypoint: /bin/sh
   args:
   - -c
-  - 'chmod a+x install.sh && ./install.sh && kedro run --pipeline global -y'
+  - 'chmod a+x install.sh && ./install.sh && kedro run --pipeline global'
   env:
   - 'ENV=$BRANCH_NAME'
   - 'MLFLOW_SERVER=$_MLFLOW_SERVER'
