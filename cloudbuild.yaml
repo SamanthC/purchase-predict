@@ -15,3 +15,15 @@ steps:
   env:
   - 'ENV=$BRANCH_NAME'
   - 'MLFLOW_SERVER=$_MLFLOW_SERVER'
+- name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+  id: API deploy
+  entrypoint: "bash"
+  args:
+  - "-c"
+  - |
+      gcloud source repos clone purchase_predict_api /tmp/purchase_predict_api --project=$PROJECT_ID
+      git --git-dir=/tmp/purchase_predict_api/.git --work-tree=/tmp/purchase_predict_api ckeckout $BRANCH_NAME
+      gcloud builds submit \
+        --config /tmp/purchase_predict_api/cloudbuild.yaml /tmp/purchase_predict_api --substitution=SHORT_SHA=$SHORT_SHA
+timeout: 1200s
+
