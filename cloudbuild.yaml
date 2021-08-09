@@ -1,16 +1,17 @@
+# Liste des Cloud Builders : https://console.cloud.google.com/gcr/images/cloud-builders/GLOBAL
 steps:
-- name: "docker.io/library/python:3.7"
+- name: "docker.io/library/python:3.8"
   id: CI
   entrypoint: /bin/sh
   args:
   - -c
-  - "chmod a+x install.sh && ./install.sh && pytest"
-- name: "docker.io/library/python:3.7"
-  id: CD 
+  - 'chmod a+x install.sh && ./install.sh && pytest'
+- name: "docker.io/library/python:3.8"
+  id: CD
   entrypoint: /bin/sh
   args:
   - -c
-  - "chmod a+x install.sh && ./install.sh && pip3 install --upgrade pip && kedro run --pipeline global"
+  - 'chmod a+x install.sh && ./install.sh && kedro run --pipeline global'
   env:
-  - "ENV=$BRANCH_NAME"
-  - "MLFLOW_SERVER=$_MLFLOW_SERVER"
+  - 'ENV=$BRANCH_NAME'
+  - 'MLFLOW_SERVER=$_MLFLOW_SERVER'
