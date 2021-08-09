@@ -22,7 +22,7 @@ steps:
   - "-c"
   - |
       gcloud source repos clone purchase_predict_api /tmp/purchase_predict_api --project=$PROJECT_ID
-      git --git-dir=/tmp/purchase_predict_api/.git --work-tree=/tmp/purchase_predict_api ckeckout $BRANCH_NAME
+      git --git-dir=/tmp/purchase_predict_api/.git --work-tree=/tmp/purchase_predict_api checkout $BRANCH_NAME
       gcloud builds submit \
         --config /tmp/purchase_predict_api/cloudbuild.yaml /tmp/purchase_predict_api --substitutions=SHORT_SHA=$SHORT_SHA
 timeout: 1200s
