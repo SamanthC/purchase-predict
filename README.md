@@ -1,4 +1,4 @@
-# purchase_predict_2
+# Purchase_predict
 
 ## Overview
 
