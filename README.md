@@ -4,7 +4,7 @@
 
 This project is part of a training developed by Blent.ai
 
-The Use Case : a e-commerce company is looking for improving the path to purchase of its clients, by suggesting promo codes or other products they might be ingterested in. For that, the company started to collect data regarding the clients behaviour : each event in the dataset stands for a user (connected to a specific session) interacting with a product at a given time. The interactions with the products can be : VIEW (the client just clicked on the product), CART (the client put teh product in the basket) and PURCHASE.
+The Use Case : a e-commerce company is looking for improving the path to purchase of its clients, by suggesting promo codes or other products they might be interested in. For that, the company started to collect data regarding the clients behaviour : each event in the dataset stands for a user (connected to a specific session) interacting with a product at a given time. The interactions with the products can be : VIEW (the client just clicked on the product), CART (the client put teh product in the basket) and PURCHASE.
 There are 7 months of data, which stands for more than 400M events and more than 50GB of data.
 
 In this porject, we will create a machine learning model to predict whether an event will end with a purchase or not. Then we will deploy an API that will use this model on a service. Finally, we will automatize the whole flow from collecting the data to deploying the API. 
