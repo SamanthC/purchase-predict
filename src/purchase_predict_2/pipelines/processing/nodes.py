@@ -24,7 +24,7 @@ def encode_feature(dataset: pd.DataFrame) -> pd.DataFrame:
 
 def split_dataset(dataset: pd.DataFrame, test_ratio: float) -> Dict[str, Any]:
     """
-    Splis dataset into a training set and a test set
+    Split dataset into a training set and a test set
     """
 
     X = dataset.drop("purchased", axis=1)
