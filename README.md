@@ -2,8 +2,6 @@
 
 ## Overview
 
-This project is part of a training developed by Blent.ai
-
 The Use Case : a e-commerce company is looking for improving the path to purchase of its clients, by suggesting promo codes or other products they might be interested in. For that, the company started to collect data regarding the clients behaviour : each event in the dataset stands for a user (connected to a specific session) interacting with a product at a given time. The interactions with the products can be : VIEW (the client just clicked on the product), CART (the client put teh product in the basket) and PURCHASE.
 There are 7 months of data, which stands for more than 400M events and more than 50GB of data.
 
